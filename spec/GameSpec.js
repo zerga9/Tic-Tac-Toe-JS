@@ -32,4 +32,11 @@ describe("Game", function() {
     game.play(game.currentPlayer, 1);
     expect(game.currentPlayer).toBe(player2);
   });
+  it("lets a player win", function() {
+    game.play(game.currentPlayer, 0);
+    game.play(game.currentPlayer, 3);
+    game.play(game.currentPlayer, 1);
+    game.play(game.currentPlayer, 4);
+    expect(game.play(game.currentPlayer, 2)).toEqual("X Won!");
+  });
 });

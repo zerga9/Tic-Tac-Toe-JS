@@ -7,10 +7,14 @@ function Game(player1 = new Player("X"), player2 = new Player("O")) {
 Game.prototype.play = function(player, position) {
   if (this.grid[position] === " ") {
     this.grid[position] = player.token;
+    if (this.win()) {
+      return this.currentPlayer.token + " Won!";
+    } else {
+      this.switchTurns();
+    }
   } else {
     return "Already taken, try again";
   }
-  this.switchTurns();
 };
 
 Game.prototype.switchTurns = function() {
@@ -24,4 +28,26 @@ Game.prototype.display = function() {
   console.log(this.grid[0] + this.grid[1] + this.grid[2]);
   console.log(this.grid[3] + this.grid[4] + this.grid[5]);
   console.log(this.grid[6] + this.grid[7] + this.grid[8]);
+};
+
+Game.prototype.win = function() {
+  if (
+    (this.grid[0] === this.grid[1] &&
+      this.grid[0] === this.grid[2] &&
+      this.grid[0] !== " ") ||
+    (this.grid[0] === this.grid[3] &&
+      this.grid[6] === this.grid[0] &&
+      this.grid[0] !== " ") ||
+    (this.grid[0] === this.grid[4] &&
+      this.grid[0] === this.grid[8] &&
+      this.grid[0] !== " ") ||
+    (this.grid[2] === this.grid[4] &&
+      this.grid[2] === this.grid[6] &&
+      this.grid[2] !== " ") ||
+    (this.grid[1] === this.grid[4] &&
+      this.grid[4] === this.grid[7] &&
+      this.grid[1] !== " ")
+  ) {
+    return true;
+  }
 };
