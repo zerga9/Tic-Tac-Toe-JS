@@ -26,4 +26,10 @@ describe("Game", function() {
     game.play(player1, 3);
     expect(game.play(player2, 3)).toEqual("Already taken, try again");
   });
+
+  it("only lets player have one turn", function() {
+    expect(game.currentPlayer).toBe(player1);
+    game.play(game.currentPlayer, 1);
+    expect(game.currentPlayer).toBe(player2);
+  });
 });
