@@ -21,4 +21,9 @@ describe("Game", function() {
     game.play(player1, 2);
     expect(game.grid).toEqual([" ", " ", "X", " ", " ", " ", " ", " ", " "]);
   });
+
+  it("doesn't let the player choose an already taken position", function() {
+    game.play(player1, 3);
+    expect(game.play(player2, 3)).toEqual("Already taken, try again");
+  });
 });

@@ -4,7 +4,11 @@ function Game(player1 = new Player("X"), player2 = new Player("O")) {
   this.player2 = player2;
 }
 Game.prototype.play = function(player, position) {
-  this.grid[position] = player.token;
+  if (this.grid[position] === " ") {
+    this.grid[position] = player.token;
+  } else {
+    return "Already taken, try again";
+  }
 };
 Game.prototype.display = function() {
   console.log(this.grid[0] + this.grid[1] + this.grid[2]);
