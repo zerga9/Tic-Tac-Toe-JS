@@ -1,5 +1,5 @@
 function Game(player1 = new Player("X"), player2 = new Player("O")) {
-  this.grid = [" ", " ", " ", " ", " ", " ", " ", " ", " "];
+  this.grid = Array(9).fill(" ");
   this.player1 = player1;
   this.player2 = player2;
 }
