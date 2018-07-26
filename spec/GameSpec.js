@@ -32,11 +32,24 @@ describe("Game", function() {
     game.play(game.currentPlayer, 1);
     expect(game.currentPlayer).toBe(player2);
   });
+
   it("lets a player win", function() {
     game.play(game.currentPlayer, 0);
     game.play(game.currentPlayer, 3);
     game.play(game.currentPlayer, 1);
     game.play(game.currentPlayer, 4);
     expect(game.play(game.currentPlayer, 2)).toEqual("X Won!");
+  });
+
+  it("should be a draw if all cells filled and no winner", function() {
+    game.play(game.currentPlayer, 0);
+    game.play(game.currentPlayer, 1);
+    game.play(game.currentPlayer, 2);
+    game.play(game.currentPlayer, 3);
+    game.play(game.currentPlayer, 4);
+    game.play(game.currentPlayer, 6);
+    game.play(game.currentPlayer, 5);
+    game.play(game.currentPlayer, 8);
+    expect(game.play(game.currentPlayer, 7)).toEqual("It's a draw");
   });
 });
