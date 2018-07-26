@@ -9,6 +9,8 @@ Game.prototype.play = function(player, position) {
     this.grid[position] = player.token;
     if (this.win()) {
       return this.currentPlayer.token + " Won!";
+    } else if (this.draw()) {
+      return "It's a draw";
     } else {
       this.switchTurns();
     }
@@ -22,6 +24,12 @@ Game.prototype.switchTurns = function() {
     this.currentPlayer = this.player2;
   } else {
     this.currentPlayer = this.player1;
+  }
+};
+
+Game.prototype.draw = function() {
+  if (!this.grid.includes(" ")) {
+    return true;
   }
 };
 Game.prototype.display = function() {
