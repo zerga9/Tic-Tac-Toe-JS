@@ -44,6 +44,7 @@ Game.prototype.reset = function() {
     document.getElementById(i).innerHTML = " ";
   }
   this.currentPlayer = this.player1;
+  this.grid = Array(9).fill(" ");
 };
 Game.prototype.win = function() {
   if (
