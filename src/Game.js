@@ -18,7 +18,7 @@ Game.prototype.play = function(player, position) {
   } else {
     alert("Already taken, try again");
   }
-  return (document.getElementById(position).innerHTML = this.grid[position]);
+  document.getElementById(position).innerHTML = this.grid[position];
 };
 
 Game.prototype.switchTurns = function() {
