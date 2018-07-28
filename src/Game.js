@@ -39,7 +39,12 @@ Game.prototype.display = function() {
   console.log(this.grid[3] + this.grid[4] + this.grid[5]);
   console.log(this.grid[6] + this.grid[7] + this.grid[8]);
 };
-
+Game.prototype.reset = function() {
+  for (var i = 0; i < 9; i++) {
+    document.getElementById(i).innerHTML = " ";
+  }
+  this.currentPlayer = this.player1;
+};
 Game.prototype.win = function() {
   if (
     (this.grid[0] === this.grid[1] &&
