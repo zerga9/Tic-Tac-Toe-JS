@@ -1,6 +1,5 @@
 # TIC-TAC-TOE in JAVASCRIPT
 
-
 #### The rules of tic-tac-toe are as follows:
 
 There are two players in the game (X and O)
@@ -11,3 +10,7 @@ A player wins if they claim all the fields in a row, column or diagonal
 A game is over if a player wins
 A game is over when all fields are taken
 Build the business logic for a game of tic tac toe. It should be easy to implement a working game of tic tac toe by combining your code with any user interface, whether web or command line.
+
+Screenshot game
+
+![image](https://user-images.githubusercontent.com/33194929/43360518-7074203e-92ae-11e8-8fff-b9f9427204dd.png)
