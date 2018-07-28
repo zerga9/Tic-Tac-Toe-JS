@@ -13,4 +13,4 @@ Build the business logic for a game of tic tac toe. It should be easy to impleme
 
 Screenshot game
 
-![image](https://user-images.githubusercontent.com/33194929/43360518-7074203e-92ae-11e8-8fff-b9f9427204dd.png)
+![image](https://user-images.githubusercontent.com/33194929/43360806-a263db0e-92b6-11e8-9747-63a87afea59e.png)
