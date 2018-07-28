@@ -4,19 +4,22 @@ function Game(player1 = new Player("X"), player2 = new Player("O")) {
   this.player2 = player2;
   this.currentPlayer = player1;
 }
+var game = new Game(new Player("X"), new Player("O"));
+
 Game.prototype.play = function(player, position) {
   if (this.grid[position] === " ") {
     this.grid[position] = player.token;
     if (this.win()) {
-      return this.currentPlayer.token + " Won!";
+      alert(this.currentPlayer.token + " Won!");
     } else if (this.draw()) {
-      return "It's a draw";
+      alert("It's a draw");
     } else {
       this.switchTurns();
     }
   } else {
-    return "Already taken, try again";
+    alert("Already taken, try again");
   }
+  return this.grid[position];
 };
 
 Game.prototype.switchTurns = function() {
