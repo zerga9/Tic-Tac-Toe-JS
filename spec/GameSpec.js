@@ -7,6 +7,10 @@ describe("Game", function() {
     player2 = new Player("O");
     game = new Game(player1, player2);
     spyOn(window, "alert");
+    var dummyElement = document.createElement("td");
+    document.getElementById = jasmine
+      .createSpy("HTML Element")
+      .and.returnValue(dummyElement);
   });
 
   it("should give 9 empty places", function() {
