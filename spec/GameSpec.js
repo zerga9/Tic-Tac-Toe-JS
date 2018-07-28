@@ -24,7 +24,9 @@ describe("Game", function() {
 
   it("doesn't let the player choose an already taken position", function() {
     game.play(player1, 3);
-    expect(game.play(player2, 3)).toEqual("Already taken, try again");
+    spyOn(window, "alert");
+    game.play(player2, 3);
+    expect(window.alert).toHaveBeenCalledWith("Already taken, try again");
   });
 
   it("only lets player have one turn", function() {
@@ -38,7 +40,9 @@ describe("Game", function() {
     game.play(game.currentPlayer, 3);
     game.play(game.currentPlayer, 1);
     game.play(game.currentPlayer, 4);
-    expect(game.play(game.currentPlayer, 2)).toEqual("X Won!");
+    spyOn(window, "alert");
+    game.play(game.currentPlayer, 2);
+    expect(window.alert).toHaveBeenCalledWith("X Won!");
   });
 
   it("should be a draw if all cells filled and no winner", function() {
@@ -50,6 +54,8 @@ describe("Game", function() {
     game.play(game.currentPlayer, 6);
     game.play(game.currentPlayer, 5);
     game.play(game.currentPlayer, 8);
-    expect(game.play(game.currentPlayer, 7)).toEqual("It's a draw");
+    spyOn(window, "alert");
+    game.play(game.currentPlayer, 7);
+    expect(window.alert).toHaveBeenCalledWith("It's a draw");
   });
 });
