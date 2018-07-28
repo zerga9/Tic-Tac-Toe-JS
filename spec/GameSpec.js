@@ -6,6 +6,7 @@ describe("Game", function() {
     player1 = new Player("X");
     player2 = new Player("O");
     game = new Game(player1, player2);
+    spyOn(window, "alert");
   });
 
   it("should give 9 empty places", function() {
@@ -24,7 +25,6 @@ describe("Game", function() {
 
   it("doesn't let the player choose an already taken position", function() {
     game.play(player1, 3);
-    spyOn(window, "alert");
     game.play(player2, 3);
     expect(window.alert).toHaveBeenCalledWith("Already taken, try again");
   });
@@ -40,7 +40,6 @@ describe("Game", function() {
     game.play(game.currentPlayer, 3);
     game.play(game.currentPlayer, 1);
     game.play(game.currentPlayer, 4);
-    spyOn(window, "alert");
     game.play(game.currentPlayer, 2);
     expect(window.alert).toHaveBeenCalledWith("X Won!");
   });
@@ -54,7 +53,6 @@ describe("Game", function() {
     game.play(game.currentPlayer, 6);
     game.play(game.currentPlayer, 5);
     game.play(game.currentPlayer, 8);
-    spyOn(window, "alert");
     game.play(game.currentPlayer, 7);
     expect(window.alert).toHaveBeenCalledWith("It's a draw");
   });
