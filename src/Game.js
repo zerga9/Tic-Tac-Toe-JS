@@ -48,33 +48,38 @@ Game.prototype.reset = function() {
   this.currentPlayer = this.player1;
   this.grid = Array(9).fill(" ");
 };
+
 Game.prototype.win = function() {
-  if (
-    (this.grid[0] === this.grid[1] &&
-      this.grid[0] === this.grid[2] &&
-      this.grid[0] !== " ") ||
-    (this.grid[0] === this.grid[3] &&
-      this.grid[6] === this.grid[0] &&
-      this.grid[0] !== " ") ||
-    (this.grid[0] === this.grid[4] &&
-      this.grid[0] === this.grid[8] &&
-      this.grid[0] !== " ") ||
-    (this.grid[2] === this.grid[4] &&
-      this.grid[2] === this.grid[6] &&
-      this.grid[2] !== " ") ||
-    (this.grid[1] === this.grid[4] &&
-      this.grid[4] === this.grid[7] &&
-      this.grid[1] !== " ") ||
-    (this.grid[3] === this.grid[4] &&
-      this.grid[4] === this.grid[5] &&
-      this.grid[4] !== " ") ||
-    (this.grid[6] === this.grid[7] &&
-      this.grid[6] === this.grid[8] &&
-      this.grid[6] !== " ") ||
-    (this.grid[2] === this.grid[5] &&
-      this.grid[2] === this.grid[8] &&
-      this.grid[2] !== " ")
-  ) {
-    return true;
+  var xwon = [];
+  var ywon = [];
+  var won = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 4, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [2, 4, 6]
+  ];
+  var sum = 0;
+  for (var i = 0; i < 9; i++) {
+    if (this.grid[i] === "X") {
+      xwon.push(i);
+    } else if (this.grid[i] === "Y") {
+      ywon.push(i);
+    }
+  }
+  for (var x = 0; x < won.length; x++) {
+    if (
+      (xwon.includes(won[x][0]) &&
+        xwon.includes(won[x][1]) &&
+        xwon.includes(won[x][2])) ||
+      (ywon.includes(won[x][0]) &&
+        ywon.includes(won[x][1]) &&
+        ywon.includes(won[x][2]))
+    ) {
+      return true;
+    }
   }
 };
