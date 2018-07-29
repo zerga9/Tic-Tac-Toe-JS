@@ -22,11 +22,9 @@ Game.prototype.play = function(player, position) {
 };
 
 Game.prototype.switchTurns = function() {
-  if (this.currentPlayer === this.player1) {
-    this.currentPlayer = this.player2;
-  } else {
-    this.currentPlayer = this.player1;
-  }
+  this.currentPlayer === this.player1
+    ? (this.currentPlayer = this.player2)
+    : (this.currentPlayer = this.player1);
 };
 
 Game.prototype.draw = function() {
