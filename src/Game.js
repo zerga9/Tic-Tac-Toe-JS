@@ -1,4 +1,4 @@
-function Game(player1 = new Player("X"), player2 = new Player("O")) {
+function Game(player1, player2) {
   this.grid = Array(9).fill(" ");
   this.player1 = player1;
   this.player2 = player2;
@@ -35,9 +35,11 @@ Game.prototype.draw = function() {
   }
 };
 Game.prototype.display = function() {
-  console.log(this.grid[0] + this.grid[1] + this.grid[2]);
-  console.log(this.grid[3] + this.grid[4] + this.grid[5]);
-  console.log(this.grid[6] + this.grid[7] + this.grid[8]);
+  console.log(this.grid[0] + "|" + this.grid[1] + "|" + this.grid[2]);
+  console.log("-----");
+  console.log(this.grid[3] + "|" + this.grid[4] + "|" + this.grid[5]);
+  console.log("-----");
+  console.log(this.grid[6] + "|" + this.grid[7] + "|" + this.grid[8]);
 };
 Game.prototype.reset = function() {
   for (var i = 0; i < 9; i++) {
