@@ -32,6 +32,7 @@ Game.prototype.draw = function() {
     return true;
   }
 };
+
 Game.prototype.display = function() {
   console.log(this.grid[0] + "|" + this.grid[1] + "|" + this.grid[2]);
   console.log("-----");
@@ -39,6 +40,7 @@ Game.prototype.display = function() {
   console.log("-----");
   console.log(this.grid[6] + "|" + this.grid[7] + "|" + this.grid[8]);
 };
+
 Game.prototype.reset = function() {
   for (var i = 0; i < 9; i++) {
     document.getElementById(i).innerHTML = " ";
@@ -60,7 +62,6 @@ Game.prototype.win = function() {
     [2, 5, 8],
     [2, 4, 6]
   ];
-  var sum = 0;
   for (var i = 0; i < 9; i++) {
     if (this.grid[i] === "X") {
       xwon.push(i);
