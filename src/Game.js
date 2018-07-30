@@ -10,8 +10,10 @@ Game.prototype.play = function(player, position) {
     this.grid[position] = player.token;
     if (this.win()) {
       alert(this.currentPlayer.token + " Won!");
+      this.reset();
     } else if (this.draw()) {
       alert("It's a draw");
+      this.reset();
     } else {
       this.switchTurns();
     }
