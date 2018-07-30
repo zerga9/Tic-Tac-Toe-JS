@@ -65,7 +65,7 @@ Game.prototype.win = function() {
   for (var i = 0; i < 9; i++) {
     if (this.grid[i] === "X") {
       xwon.push(i);
-    } else if (this.grid[i] === "Y") {
+    } else if (this.grid[i] === "O") {
       ywon.push(i);
     }
   }
