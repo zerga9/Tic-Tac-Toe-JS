@@ -45,7 +45,8 @@ describe("Game", function() {
     game.play(game.currentPlayer, 1);
     game.play(game.currentPlayer, 4);
     game.play(game.currentPlayer, 2);
-    expect(window.alert).toHaveBeenCalledWith("X Won!");
+    expect(document.getElementById).toHaveBeenCalledWith("message");
+    // expect(window.alert).toHaveBeenCalledWith("X Won!");
   });
 
   it("should be a draw if all cells filled and no winner", function() {
