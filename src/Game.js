@@ -9,8 +9,12 @@ Game.prototype.play = function(player, position) {
   if (this.grid[position] === " ") {
     this.grid[position] = player.token;
     if (this.win()) {
-      alert(this.currentPlayer.token + " Won!");
-      this.reset();
+      document.getElementById("message").innerHTML =
+        this.currentPlayer.token + " Won!";
+      // alert(this.currentPlayer.token + " Won!");
+      setTimeout(function() {
+        game.reset();
+      }, 3000);
     } else if (this.draw()) {
       alert("It's a draw");
       this.reset();
@@ -49,6 +53,7 @@ Game.prototype.reset = function() {
   }
   this.currentPlayer = this.player1;
   this.grid = Array(9).fill(" ");
+  document.getElementById("message").innerHTML = "";
 };
 
 Game.prototype.win = function() {
